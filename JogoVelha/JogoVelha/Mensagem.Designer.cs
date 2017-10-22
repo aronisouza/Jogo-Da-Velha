@@ -78,6 +78,7 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "Mensagem do sistema";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveJ);
             // 
             // label3
             // 

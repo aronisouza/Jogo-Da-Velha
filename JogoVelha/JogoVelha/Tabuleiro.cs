@@ -35,5 +35,17 @@
                 LugarTabuleiro[i] = 'V';
             }
         }
+
+        //:: Realiza contagem para saber se empatou o jogo
+        public int Empate()
+        {
+            int pontos = 0;
+            for (int i = 0; i < LugarTabuleiro.Length; i++)
+            {
+                if(LugarTabuleiro[i] == 'V') { pontos = 0; return -1; }
+                pontos++;
+            }
+            return pontos;
+        }
     }
 }

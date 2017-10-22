@@ -10,15 +10,31 @@ namespace JogoVelha
         {
             InitializeComponent();
         }
+
         //:: Iniciar jogo
         private bool iniciarJogo = false;
         public bool IniciarJogo { get => iniciarJogo; set => iniciarJogo = value; }
 
-        //:: Instância a Classe JogaVs
+        //:: Modo de jogo
+        //:: Usado em caso de trocar modo para zerar a pontuação
+        //> false para contra IA
+        private bool modoJogo = false;
+        public bool ModoJogo { get => modoJogo; set => modoJogo = value; }
+
+        //:: Instância a Classe JogaVs e IAJoga
         JogaVS vs = new JogaVS();
+        IAJoga iaJoga = new IAJoga();
        
         //:: Instância a Classe Tabuleiro
         Tabuleiro tabuleiro = new Tabuleiro();
+        
+        //:: Variaveis de pontuação
+        private int empataPontos = 0;
+        private int xPontos = 0;
+        private int oPontos = 0;
+        private int EmpatePontos { get => empataPontos; set => empataPontos = value; }
+        private int XPontos { get => xPontos; set => xPontos = value; }
+        private int OPontos { get => oPontos; set => oPontos = value; }
 
         #region Move Janela
         public const int WM_NCLBUTTONDOWN = 0xA1;
@@ -27,7 +43,6 @@ namespace JogoVelha
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImportAttribute("user32.dll")]
         public static extern bool ReleaseCapture();
-
         private void moveJ(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -63,46 +78,131 @@ namespace JogoVelha
                     "Para iniciar o jogo você tem que:\r\n" +
                     "Digitar seu Nome, " +
                     "escolher modo de jogo e " +
-                    "se for contra outra pessoa digitar o nome dela."
+                    "se for contra outra pessoa digitar o nome dela.\r\n"+
+                    "E clique em INICIAR."
                     );
                 erro.ShowDialog();
                 return;
             }
-
+            
+            //:: Guarda quem joga
             string quemJoga = vs.VezDeJogar;
-            //:: Verifica se lugar no tabuleiro esrá vazio
-            int lugar = tabuleiro.LugarVazio(((PictureBox)sender).Name);
 
+            //:: Verifica se lugar no tabuleiro está vazio
+            int lugar = tabuleiro.LugarVazio(((PictureBox)sender).Name);
+           
             //:: lugar no tabuleiro já ocupado não faz nada
             if (lugar == -1) { return; }
-            
+           
             //:: Se estiver vazio coloca peça da vez nele
             tabuleiro.LugarTabuleiro[lugar] = quemJoga == "vp1" ? 'X' : 'O';
             ((PictureBox)sender).Image = quemJoga == "vp1" ? Properties.Resources.pv_X : Properties.Resources.pv_O;
             vezJogarXO.Image = quemJoga == "vp2" ? Properties.Resources.pv_X : Properties.Resources.pv_O;
             vs.VezDeJogar = quemJoga == "vp1" ? "vp2" : "vp1";
-
+            
+            //:: Checa se fez a velha
+            //:: Caso sim faz a pontuação e reseta o jogo
             if (vs.ChecarVelha(quemJoga == "vp1" ? 'X' : 'O'))
             {
                 Mensagem nv = new Mensagem(quemJoga == "vp1" ? 'X' : 'O', quemJoga == "vp1" ? txtJogador1.Text : rbPessoa.Checked ? txtJogador2.Text: "Computador");
                 nv.ShowDialog();
-
-                IniciarJogo = false;
-                btIniciar.Enabled = true;
-                //:: resetar o tabuleiro
-                tabuleiro.ReseteTabuleiro();
-                pc1.Image = null;
-                pc2.Image = null;
-                pc3.Image = null;
-                pc4.Image = null;
-                pc5.Image = null;
-                pc6.Image = null;
-                pc7.Image = null;
-                pc8.Image = null;
-                pc9.Image = null;
+                if (quemJoga == "vp1") { XPontos++; }
+                if (quemJoga == "vp2") { OPontos++; }
                 vs.VezDeJogar = quemJoga == "vp1" ? "vp1" : "vp2";
-                vezJogarXO.Image = quemJoga == "vp1" ? Properties.Resources.pv_X : Properties.Resources.pv_O;
+                ReseteJogo();
+                return;
             }
+
+            //:: FAZER PARTE DA IA
+            if (rbComputador.Checked)
+            {
+                int iAataca = iaJoga.IAChecarVelha('O');
+                int iAdefende = iAataca != -1 ? -1 : iaJoga.IAChecarVelha('X');
+
+                int iAaleatorio = iAdefende == -1 ? iaJoga.IAaleatorio(): -1;
+
+                int iaImagem = 0;
+
+                if (iAataca != -1)
+                {
+                    tabuleiro.LugarTabuleiro[iAataca] = 'O';
+                    iaImagem = iAataca;
+                }
+                else if (iAdefende != -1)
+                {
+                    tabuleiro.LugarTabuleiro[iAdefende] = 'O';
+                    iaImagem = iAdefende;
+                }
+                else if (iAataca == -1 && iAdefende == -1 && iAaleatorio != -1)
+                {
+                    //:: dando erro aqui consertar isso
+                    tabuleiro.LugarTabuleiro[iAaleatorio] = 'O';
+                    iaImagem = iAaleatorio;
+                }
+
+                switch (iaImagem)
+                {
+                    case 0: pc1.Image = Properties.Resources.pv_O; break;
+                    case 1: pc2.Image = Properties.Resources.pv_O; break;
+                    case 2: pc3.Image = Properties.Resources.pv_O; break;
+                    case 3: pc4.Image = Properties.Resources.pv_O; break;
+                    case 4: pc5.Image = Properties.Resources.pv_O; break;
+                    case 5: pc6.Image = Properties.Resources.pv_O; break;
+                    case 6: pc7.Image = Properties.Resources.pv_O; break;
+                    case 7: pc8.Image = Properties.Resources.pv_O; break;
+                    case 8: pc9.Image = Properties.Resources.pv_O; break;
+                }
+                vezJogarXO.Image = Properties.Resources.pv_X;
+
+                if (vs.ChecarVelha('O'))
+                {
+                    Mensagem nv = new Mensagem('O', "Computador");
+                    nv.ShowDialog();
+                    OPontos++;
+                    vs.VezDeJogar = quemJoga == "vp1" ? "vp1" : "vp2";
+                    ReseteJogo();
+                }
+                vs.VezDeJogar = "vp1";
+            }
+
+            //:: Checa se de empate
+            //:: Caso sim faz a pontuação e reseta o jogo
+            if (tabuleiro.Empate() == 9)
+            {
+                Erros erro = new Erros("O jogo empatou!!!");
+                erro.ShowDialog();
+                EmpatePontos++;
+                ReseteJogo();
+                return;
+            }
+
+            //:: Mostar a pontução
+            lbEmpate.Text = EmpatePontos.ToString();
+            lbO.Text = OPontos.ToString();
+            lbX.Text = XPontos.ToString();
+        }
+
+        private void ReseteJogo()
+        {
+            IniciarJogo = false;
+            btIniciar.Enabled = true;
+            gbOpcoes.Enabled = true;
+            //:: resetar o tabuleiro
+            tabuleiro.ReseteTabuleiro();
+            pc1.Image = null;
+            pc2.Image = null;
+            pc3.Image = null;
+            pc4.Image = null;
+            pc5.Image = null;
+            pc6.Image = null;
+            pc7.Image = null;
+            pc8.Image = null;
+            pc9.Image = null;
+            vezJogarXO.Image = vs.VezDeJogar == "vp1" ? Properties.Resources.pv_X : Properties.Resources.pv_O;
+            //:: Mostar a pontução
+            lbEmpate.Text = EmpatePontos.ToString();
+            lbO.Text = OPontos.ToString();
+            lbX.Text = XPontos.ToString();
         }
 
         private void btIniciar_Click(object sender, EventArgs e)
@@ -119,8 +219,34 @@ namespace JogoVelha
                 erro.ShowDialog();
                 return;
             }
+
+            //:: se mudar de modo zera pontuação
+            if(rbComputador.Checked && ModoJogo)
+            {
+                ModoJogo = false;
+                XPontos = 0;
+                OPontos = 0;
+                EmpatePontos = 0;
+                //:: Mostar a pontução
+                lbEmpate.Text = EmpatePontos.ToString();
+                lbO.Text = OPontos.ToString();
+                lbX.Text = XPontos.ToString();
+            }
+            if (rbPessoa.Checked && !ModoJogo)
+            {
+                ModoJogo = true;
+                XPontos = 0;
+                OPontos = 0;
+                EmpatePontos = 0;
+                //:: Mostar a pontução
+                lbEmpate.Text = EmpatePontos.ToString();
+                lbO.Text = OPontos.ToString();
+                lbX.Text = XPontos.ToString();
+            }
+            
             gbOpcoes.Enabled = false;
             txtJogador1.Enabled = false;
+            txtJogador2.Enabled = false;
             btIniciar.Enabled = false;
             IniciarJogo = true;
         }
@@ -133,6 +259,7 @@ namespace JogoVelha
 
         private void rbPessoa_CheckedChanged(object sender, EventArgs e)
         {
+            txtJogador1.Enabled = true;
             txtJogador2.Enabled = true;
         }
 
