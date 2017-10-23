@@ -30,10 +30,11 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lbMsg = new System.Windows.Forms.Label();
             this.btFechar = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.linkGit = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -55,6 +56,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.panel2.Controls.Add(this.linkGit);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.lbMsg);
@@ -63,6 +65,16 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(531, 225);
             this.panel2.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::JogoVelha.Properties.Resources.Tic_Tac_Toe;
+            this.pictureBox1.Location = new System.Drawing.Point(-15, 43);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(240, 180);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // label2
             // 
@@ -102,15 +114,16 @@
             this.btFechar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btFechar.Click += new System.EventHandler(this.btFechar_Click);
             // 
-            // pictureBox1
+            // linkGit
             // 
-            this.pictureBox1.Image = global::JogoVelha.Properties.Resources.Tic_Tac_Toe;
-            this.pictureBox1.Location = new System.Drawing.Point(-15, 43);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(240, 180);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
+            this.linkGit.AutoSize = true;
+            this.linkGit.Location = new System.Drawing.Point(272, 196);
+            this.linkGit.Name = "linkGit";
+            this.linkGit.Size = new System.Drawing.Size(156, 13);
+            this.linkGit.TabIndex = 8;
+            this.linkGit.TabStop = true;
+            this.linkGit.Text = "https://github.com/aronisouza/";
+            this.linkGit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkGit_LinkClicked);
             // 
             // Informativo
             // 
@@ -138,5 +151,6 @@
         private System.Windows.Forms.Label lbMsg;
         private System.Windows.Forms.Label btFechar;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel linkGit;
     }
 }

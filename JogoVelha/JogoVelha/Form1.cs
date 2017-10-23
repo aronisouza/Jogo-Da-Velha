@@ -11,7 +11,8 @@ namespace JogoVelha
             InitializeComponent();
         }
 
-        //:: Iniciar jogo
+        //:: Iniciar o jogo
+        //:: Se o jogo não estiver iniciado os botões ficam desabilitados
         private bool iniciarJogo = false;
         public bool IniciarJogo { get => iniciarJogo; set => iniciarJogo = value; }
 
@@ -21,11 +22,9 @@ namespace JogoVelha
         private bool modoJogo = false;
         public bool ModoJogo { get => modoJogo; set => modoJogo = value; }
 
-        //:: Instância a Classe JogaVs e IAJoga
+        //:: Instância a Classe JogaVs, IAJoga e Tabuleiro
         JogaVS vs = new JogaVS();
         IAJoga iaJoga = new IAJoga();
-       
-        //:: Instância a Classe Tabuleiro
         Tabuleiro tabuleiro = new Tabuleiro();
         
         //:: Variaveis de pontuação
@@ -95,7 +94,7 @@ namespace JogoVelha
             ((PictureBox)sender).Image = quemJoga == "vp1" ? Properties.Resources.pv_X : Properties.Resources.pv_O;
             vezJogarXO.Image = quemJoga == "vp2" ? Properties.Resources.pv_X : Properties.Resources.pv_O;
             vs.VezDeJogar = quemJoga == "vp1" ? "vp2" : "vp1";
-            //:: Checa se fez a velha
+            //:: Checa se fez uma trilha
             //:: Caso sim faz a pontuação e reseta o jogo
             if (vs.ChecarVelha(quemJoga == "vp1" ? 'X' : 'O'))
             {
@@ -114,7 +113,7 @@ namespace JogoVelha
                 int iAataca = iaJoga.IAChecarVelha('O');
                 int iAdefende = iAataca != -1 ? -1 : iaJoga.IAChecarVelha('X');
                 int iAaleatorio = iAdefende == -1 ? iaJoga.IAaleatorio(): -1;
-                //:: Armazena uma id para trocar imagem la no switch
+                //:: Armazena uma id para trocar imagem lá no switch
                 int iaImagem = 0;
                 //:: Se tiver opção para atacar IA ataca
                 if (iAataca != -1)
@@ -149,7 +148,7 @@ namespace JogoVelha
                 }
                 //:: Atualiza jogada da Ia no tabuleiro
                 vezJogarXO.Image = Properties.Resources.pv_X;
-                //:: Checa se Ia fez a velha
+                //:: Checa se Ia fez a trilha
                 if (vs.ChecarVelha('O'))
                 {
                     Mensagem nv = new Mensagem('O', "Computador");
@@ -160,7 +159,7 @@ namespace JogoVelha
                 //:: Passa vez para jogador
                 vs.VezDeJogar = "vp1";
             }
-            //:: Checa se de empate
+            //:: Checa se deu velha
             //:: Caso sim faz a pontuação e reseta o jogo
             if (tabuleiro.Empate() == 9)
             {
@@ -177,7 +176,6 @@ namespace JogoVelha
             IniciarJogo = false;
             btIniciar.Enabled = true;
             gbOpcoes.Enabled = true;
-            //:: resetar o tabuleiro
             tabuleiro.ReseteTabuleiro();
             pc1.Image = null;
             pc2.Image = null;
@@ -189,7 +187,6 @@ namespace JogoVelha
             pc8.Image = null;
             pc9.Image = null;
             vezJogarXO.Image = vs.VezDeJogar == "vp1" ? Properties.Resources.pv_X : Properties.Resources.pv_O;
-            //:: Mostar a pontução
             lbEmpate.Text = EmpatePontos.ToString();
             lbO.Text = OPontos.ToString();
             lbX.Text = XPontos.ToString();
@@ -209,8 +206,7 @@ namespace JogoVelha
                 erro.ShowDialog();
                 return;
             }
-
-            //:: se mudar de modo zera pontuação
+            //:: Se mudar o modo de jogo zera pontuação atual
             if(rbComputador.Checked && ModoJogo)
             {
                 ModoJogo = false;
@@ -233,7 +229,6 @@ namespace JogoVelha
                 lbO.Text = OPontos.ToString();
                 lbX.Text = XPontos.ToString();
             }
-            
             gbOpcoes.Enabled = false;
             txtJogador1.Enabled = false;
             txtJogador2.Enabled = false;

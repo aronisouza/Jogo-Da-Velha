@@ -16,20 +16,17 @@
             if (LugarTabuleiro[3] == z && LugarTabuleiro[4] == z && LugarTabuleiro[5] == z) { return true; }
             //:: 6, 7, 8
             if (LugarTabuleiro[6] == z && LugarTabuleiro[7] == z && LugarTabuleiro[8] == z) { return true; }
-           
             //:: 0, 3, 6
             if (LugarTabuleiro[0] == z && LugarTabuleiro[3] == z && LugarTabuleiro[6] == z) { return true; }
             //:: 1, 4, 7
             if (LugarTabuleiro[1] == z && LugarTabuleiro[4] == z && LugarTabuleiro[7] == z) { return true; }
             //:: 2, 5, 8
             if (LugarTabuleiro[2] == z && LugarTabuleiro[5] == z && LugarTabuleiro[8] == z) { return true; }
-           
             //:: 0, 4, 8
             if (LugarTabuleiro[0] == z && LugarTabuleiro[4] == z && LugarTabuleiro[8] == z) { return true; }
             //:: 2, 4, 6
             if (LugarTabuleiro[2] == z && LugarTabuleiro[4] == z && LugarTabuleiro[6] == z) { return true; }
-
-            //:: Se não formou velha
+            //:: Se não formou uma trilha
             return false;
         }
 

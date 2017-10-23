@@ -24,6 +24,7 @@
                 case "pc8": if (LugarTabuleiro[7] == 'V') return 7; break;
                 case "pc9": if (LugarTabuleiro[8] == 'V') return 8; break;
             }
+            //:: Se estiver ocupado
             return -1;
         }
 
@@ -36,7 +37,7 @@
             }
         }
 
-        //:: Realiza contagem para saber se empatou o jogo
+        //:: Realiza contagem para saber se deu velha
         public int Empate()
         {
             int pontos = 0;
