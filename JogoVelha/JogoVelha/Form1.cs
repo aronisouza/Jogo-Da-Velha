@@ -84,22 +84,17 @@ namespace JogoVelha
                 erro.ShowDialog();
                 return;
             }
-            
             //:: Guarda quem joga
             string quemJoga = vs.VezDeJogar;
-
             //:: Verifica se lugar no tabuleiro está vazio
             int lugar = tabuleiro.LugarVazio(((PictureBox)sender).Name);
-           
             //:: lugar no tabuleiro já ocupado não faz nada
             if (lugar == -1) { return; }
-           
             //:: Se estiver vazio coloca peça da vez nele
             tabuleiro.LugarTabuleiro[lugar] = quemJoga == "vp1" ? 'X' : 'O';
             ((PictureBox)sender).Image = quemJoga == "vp1" ? Properties.Resources.pv_X : Properties.Resources.pv_O;
             vezJogarXO.Image = quemJoga == "vp2" ? Properties.Resources.pv_X : Properties.Resources.pv_O;
             vs.VezDeJogar = quemJoga == "vp1" ? "vp2" : "vp1";
-            
             //:: Checa se fez a velha
             //:: Caso sim faz a pontuação e reseta o jogo
             if (vs.ChecarVelha(quemJoga == "vp1" ? 'X' : 'O'))
@@ -112,34 +107,34 @@ namespace JogoVelha
                 ReseteJogo();
                 return;
             }
-
-            //:: FAZER PARTE DA IA
+            //:: IA jogando caso estejá ligado
             if (rbComputador.Checked)
             {
+                //:: Faz as checagens de ataque, defesa e jogar aleatório
                 int iAataca = iaJoga.IAChecarVelha('O');
                 int iAdefende = iAataca != -1 ? -1 : iaJoga.IAChecarVelha('X');
-
                 int iAaleatorio = iAdefende == -1 ? iaJoga.IAaleatorio(): -1;
-
+                //:: Armazena uma id para trocar imagem la no switch
                 int iaImagem = 0;
-
+                //:: Se tiver opção para atacar IA ataca
                 if (iAataca != -1)
                 {
                     tabuleiro.LugarTabuleiro[iAataca] = 'O';
                     iaImagem = iAataca;
                 }
+                //:: Se tiver opção para defesa IA defende
                 else if (iAdefende != -1)
                 {
                     tabuleiro.LugarTabuleiro[iAdefende] = 'O';
                     iaImagem = iAdefende;
                 }
+                //:: IA joga aleatório
                 else if (iAataca == -1 && iAdefende == -1 && iAaleatorio != -1)
                 {
-                    //:: dando erro aqui consertar isso
                     tabuleiro.LugarTabuleiro[iAaleatorio] = 'O';
                     iaImagem = iAaleatorio;
                 }
-
+                //:: Coloca imagem da peça no tabuleiro
                 switch (iaImagem)
                 {
                     case 0: pc1.Image = Properties.Resources.pv_O; break;
@@ -152,34 +147,29 @@ namespace JogoVelha
                     case 7: pc8.Image = Properties.Resources.pv_O; break;
                     case 8: pc9.Image = Properties.Resources.pv_O; break;
                 }
+                //:: Atualiza jogada da Ia no tabuleiro
                 vezJogarXO.Image = Properties.Resources.pv_X;
-
+                //:: Checa se Ia fez a velha
                 if (vs.ChecarVelha('O'))
                 {
                     Mensagem nv = new Mensagem('O', "Computador");
                     nv.ShowDialog();
                     OPontos++;
-                    vs.VezDeJogar = quemJoga == "vp1" ? "vp1" : "vp2";
                     ReseteJogo();
                 }
+                //:: Passa vez para jogador
                 vs.VezDeJogar = "vp1";
             }
-
             //:: Checa se de empate
             //:: Caso sim faz a pontuação e reseta o jogo
             if (tabuleiro.Empate() == 9)
             {
-                Erros erro = new Erros("O jogo empatou!!!");
+                Erros erro = new Erros("O jogo deu velha!!!");
                 erro.ShowDialog();
                 EmpatePontos++;
                 ReseteJogo();
                 return;
             }
-
-            //:: Mostar a pontução
-            lbEmpate.Text = EmpatePontos.ToString();
-            lbO.Text = OPontos.ToString();
-            lbX.Text = XPontos.ToString();
         }
 
         private void ReseteJogo()
@@ -266,6 +256,12 @@ namespace JogoVelha
         private void blBotaoFechar_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            Informativo inf = new Informativo();
+            inf.ShowDialog();
         }
     }
 }

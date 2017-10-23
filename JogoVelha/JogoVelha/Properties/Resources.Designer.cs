@@ -99,5 +99,15 @@ namespace JogoVelha.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Tic_Tac_Toe {
+            get {
+                object obj = ResourceManager.GetObject("Tic_Tac_Toe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

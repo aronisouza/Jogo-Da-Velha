@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>velha2.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -58,6 +61,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="IAJoga.cs" />
+    <Compile Include="Informativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Informativo.Designer.cs">
+      <DependentUpon>Informativo.cs</DependentUpon>
+    </Compile>
     <Compile Include="JogaVS.cs" />
     <Compile Include="Mensagem.cs">
       <SubType>Form</SubType>
@@ -73,6 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Informativo.resx">
+      <DependentUpon>Informativo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mensagem.resx">
       <DependentUpon>Mensagem.cs</DependentUpon>
@@ -117,6 +129,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\jv_tab3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tic_Tac_Toe.gif" />
+    <Content Include="velha2.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

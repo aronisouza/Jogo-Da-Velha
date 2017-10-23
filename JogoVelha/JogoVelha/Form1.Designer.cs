@@ -30,27 +30,28 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Velha));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.painelBorda = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.gbOpcoes = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rbComputador = new System.Windows.Forms.RadioButton();
-            this.rbPessoa = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtJogador2 = new System.Windows.Forms.TextBox();
-            this.lbComputador = new System.Windows.Forms.Label();
-            this.lbJogador = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtJogador1 = new System.Windows.Forms.TextBox();
-            this.lbO = new System.Windows.Forms.Label();
-            this.lbEmpate = new System.Windows.Forms.Label();
-            this.lbX = new System.Windows.Forms.Label();
-            this.blBotaoFechar = new System.Windows.Forms.Label();
-            this.btIniciar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.btIniciar = new System.Windows.Forms.Button();
+            this.gbOpcoes = new System.Windows.Forms.GroupBox();
+            this.rbPessoa = new System.Windows.Forms.RadioButton();
+            this.rbComputador = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.painelBorda = new System.Windows.Forms.Panel();
+            this.blBotaoFechar = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lbX = new System.Windows.Forms.Label();
+            this.lbEmpate = new System.Windows.Forms.Label();
+            this.lbO = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lbJogador = new System.Windows.Forms.Label();
+            this.lbComputador = new System.Windows.Forms.Label();
+            this.txtJogador1 = new System.Windows.Forms.TextBox();
+            this.txtJogador2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.vezJogarXO = new System.Windows.Forms.PictureBox();
             this.pc7 = new System.Windows.Forms.PictureBox();
             this.pc8 = new System.Windows.Forms.PictureBox();
@@ -63,11 +64,11 @@
             this.pc4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            this.gbOpcoes.SuspendLayout();
             this.painelBorda.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.gbOpcoes.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vezJogarXO)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pc7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pc8)).BeginInit();
@@ -86,6 +87,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.vezJogarXO);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.btIniciar);
@@ -102,38 +104,35 @@
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Cursor = System.Windows.Forms.Cursors.SizeAll;
             this.panel1.Location = new System.Drawing.Point(1, 124);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(549, 362);
             this.panel1.TabIndex = 9;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveJ);
             // 
-            // painelBorda
+            // label2
             // 
-            this.painelBorda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.painelBorda.Controls.Add(this.blBotaoFechar);
-            this.painelBorda.Controls.Add(this.panel2);
-            this.painelBorda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.painelBorda.Location = new System.Drawing.Point(0, 0);
-            this.painelBorda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.painelBorda.Name = "painelBorda";
-            this.painelBorda.Size = new System.Drawing.Size(551, 487);
-            this.painelBorda.TabIndex = 10;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("NSimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.Location = new System.Drawing.Point(292, 320);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(192, 24);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Vez de jogar »";
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveJ);
             // 
-            // panel2
+            // btIniciar
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.BurlyWood;
-            this.panel2.Controls.Add(this.groupBox3);
-            this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.panel2.Location = new System.Drawing.Point(1, 1);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(549, 123);
-            this.panel2.TabIndex = 0;
-            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveJ);
+            this.btIniciar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btIniciar.Location = new System.Drawing.Point(420, 142);
+            this.btIniciar.Name = "btIniciar";
+            this.btIniciar.Size = new System.Drawing.Size(116, 84);
+            this.btIniciar.TabIndex = 10;
+            this.btIniciar.Text = "INICIAR";
+            this.btIniciar.UseVisualStyleBackColor = true;
+            this.btIniciar.Click += new System.EventHandler(this.btIniciar_Click);
             // 
             // gbOpcoes
             // 
@@ -143,13 +142,41 @@
             this.gbOpcoes.Cursor = System.Windows.Forms.Cursors.Default;
             this.gbOpcoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOpcoes.Location = new System.Drawing.Point(372, 7);
-            this.gbOpcoes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbOpcoes.Margin = new System.Windows.Forms.Padding(4);
             this.gbOpcoes.Name = "gbOpcoes";
-            this.gbOpcoes.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbOpcoes.Padding = new System.Windows.Forms.Padding(4);
             this.gbOpcoes.Size = new System.Drawing.Size(163, 128);
             this.gbOpcoes.TabIndex = 9;
             this.gbOpcoes.TabStop = false;
             this.gbOpcoes.Text = "Modo de jogo";
+            // 
+            // rbPessoa
+            // 
+            this.rbPessoa.AutoSize = true;
+            this.rbPessoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbPessoa.Location = new System.Drawing.Point(14, 60);
+            this.rbPessoa.Margin = new System.Windows.Forms.Padding(4);
+            this.rbPessoa.Name = "rbPessoa";
+            this.rbPessoa.Size = new System.Drawing.Size(73, 20);
+            this.rbPessoa.TabIndex = 1;
+            this.rbPessoa.Text = "Pessoa";
+            this.rbPessoa.UseVisualStyleBackColor = true;
+            this.rbPessoa.CheckedChanged += new System.EventHandler(this.rbPessoa_CheckedChanged);
+            // 
+            // rbComputador
+            // 
+            this.rbComputador.AutoSize = true;
+            this.rbComputador.Checked = true;
+            this.rbComputador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbComputador.Location = new System.Drawing.Point(14, 94);
+            this.rbComputador.Margin = new System.Windows.Forms.Padding(4);
+            this.rbComputador.Name = "rbComputador";
+            this.rbComputador.Size = new System.Drawing.Size(100, 20);
+            this.rbComputador.TabIndex = 1;
+            this.rbComputador.TabStop = true;
+            this.rbComputador.Text = "Computador";
+            this.rbComputador.UseVisualStyleBackColor = true;
+            this.rbComputador.CheckedChanged += new System.EventHandler(this.rbComputador_CheckedChanged);
             // 
             // label1
             // 
@@ -162,186 +189,17 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Contra quem?";
             // 
-            // rbComputador
+            // painelBorda
             // 
-            this.rbComputador.AutoSize = true;
-            this.rbComputador.Checked = true;
-            this.rbComputador.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbComputador.Location = new System.Drawing.Point(14, 94);
-            this.rbComputador.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.rbComputador.Name = "rbComputador";
-            this.rbComputador.Size = new System.Drawing.Size(100, 20);
-            this.rbComputador.TabIndex = 1;
-            this.rbComputador.TabStop = true;
-            this.rbComputador.Text = "Computador";
-            this.rbComputador.UseVisualStyleBackColor = true;
-            this.rbComputador.CheckedChanged += new System.EventHandler(this.rbComputador_CheckedChanged);
-            // 
-            // rbPessoa
-            // 
-            this.rbPessoa.AutoSize = true;
-            this.rbPessoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbPessoa.Location = new System.Drawing.Point(14, 60);
-            this.rbPessoa.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.rbPessoa.Name = "rbPessoa";
-            this.rbPessoa.Size = new System.Drawing.Size(73, 20);
-            this.rbPessoa.TabIndex = 1;
-            this.rbPessoa.Text = "Pessoa";
-            this.rbPessoa.UseVisualStyleBackColor = true;
-            this.rbPessoa.CheckedChanged += new System.EventHandler(this.rbPessoa_CheckedChanged);
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lbJogador);
-            this.groupBox2.Controls.Add(this.lbComputador);
-            this.groupBox2.Controls.Add(this.txtJogador1);
-            this.groupBox2.Controls.Add(this.txtJogador2);
-            this.groupBox2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(8, 7);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox2.Size = new System.Drawing.Size(322, 107);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = " JOGADORES ";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.lbX);
-            this.groupBox3.Controls.Add(this.lbEmpate);
-            this.groupBox3.Controls.Add(this.lbO);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Cursor = System.Windows.Forms.Cursors.Default;
-            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(340, 7);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.groupBox3.Size = new System.Drawing.Size(196, 107);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = " PONTUAÇÃO ";
-            // 
-            // txtJogador2
-            // 
-            this.txtJogador2.Enabled = false;
-            this.txtJogador2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJogador2.Location = new System.Drawing.Point(117, 66);
-            this.txtJogador2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtJogador2.MaxLength = 15;
-            this.txtJogador2.Name = "txtJogador2";
-            this.txtJogador2.Size = new System.Drawing.Size(193, 26);
-            this.txtJogador2.TabIndex = 0;
-            this.txtJogador2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbComputador
-            // 
-            this.lbComputador.AutoSize = true;
-            this.lbComputador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbComputador.Location = new System.Drawing.Point(11, 71);
-            this.lbComputador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbComputador.Name = "lbComputador";
-            this.lbComputador.Size = new System.Drawing.Size(99, 17);
-            this.lbComputador.TabIndex = 1;
-            this.lbComputador.Text = "Adverssário:";
-            // 
-            // lbJogador
-            // 
-            this.lbJogador.AutoSize = true;
-            this.lbJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbJogador.Location = new System.Drawing.Point(11, 33);
-            this.lbJogador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbJogador.Name = "lbJogador";
-            this.lbJogador.Size = new System.Drawing.Size(87, 17);
-            this.lbJogador.TabIndex = 1;
-            this.lbJogador.Text = "Seu Nome:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(16, 75);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 20);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "X:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(114, 75);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 20);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "O:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(15, 36);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(67, 17);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Empate:";
-            // 
-            // txtJogador1
-            // 
-            this.txtJogador1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtJogador1.Location = new System.Drawing.Point(117, 29);
-            this.txtJogador1.Margin = new System.Windows.Forms.Padding(4);
-            this.txtJogador1.MaxLength = 15;
-            this.txtJogador1.Name = "txtJogador1";
-            this.txtJogador1.Size = new System.Drawing.Size(193, 26);
-            this.txtJogador1.TabIndex = 0;
-            this.txtJogador1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lbO
-            // 
-            this.lbO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbO.ForeColor = System.Drawing.Color.Green;
-            this.lbO.Location = new System.Drawing.Point(149, 70);
-            this.lbO.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbO.Name = "lbO";
-            this.lbO.Size = new System.Drawing.Size(38, 27);
-            this.lbO.TabIndex = 5;
-            this.lbO.Text = "0";
-            this.lbO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbEmpate
-            // 
-            this.lbEmpate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbEmpate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbEmpate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lbEmpate.Location = new System.Drawing.Point(90, 31);
-            this.lbEmpate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbEmpate.Name = "lbEmpate";
-            this.lbEmpate.Size = new System.Drawing.Size(38, 27);
-            this.lbEmpate.TabIndex = 5;
-            this.lbEmpate.Text = "0";
-            this.lbEmpate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbX
-            // 
-            this.lbX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lbX.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbX.ForeColor = System.Drawing.Color.Green;
-            this.lbX.Location = new System.Drawing.Point(46, 70);
-            this.lbX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbX.Name = "lbX";
-            this.lbX.Size = new System.Drawing.Size(38, 27);
-            this.lbX.TabIndex = 6;
-            this.lbX.Text = "0";
-            this.lbX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.painelBorda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.painelBorda.Controls.Add(this.blBotaoFechar);
+            this.painelBorda.Controls.Add(this.panel2);
+            this.painelBorda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.painelBorda.Location = new System.Drawing.Point(0, 0);
+            this.painelBorda.Margin = new System.Windows.Forms.Padding(4);
+            this.painelBorda.Name = "painelBorda";
+            this.painelBorda.Size = new System.Drawing.Size(551, 487);
+            this.painelBorda.TabIndex = 10;
             // 
             // blBotaoFechar
             // 
@@ -360,29 +218,190 @@
             this.blBotaoFechar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.blBotaoFechar.Click += new System.EventHandler(this.blBotaoFechar_Click);
             // 
-            // btIniciar
+            // panel2
             // 
-            this.btIniciar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btIniciar.Location = new System.Drawing.Point(420, 142);
-            this.btIniciar.Name = "btIniciar";
-            this.btIniciar.Size = new System.Drawing.Size(116, 84);
-            this.btIniciar.TabIndex = 10;
-            this.btIniciar.Text = "INICIAR";
-            this.btIniciar.UseVisualStyleBackColor = true;
-            this.btIniciar.Click += new System.EventHandler(this.btIniciar_Click);
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.BackColor = System.Drawing.Color.BurlyWood;
+            this.panel2.Controls.Add(this.groupBox3);
+            this.panel2.Controls.Add(this.groupBox2);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.panel2.Location = new System.Drawing.Point(1, 1);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(549, 123);
+            this.panel2.TabIndex = 0;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveJ);
             // 
-            // label2
+            // groupBox3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("NSimSun", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(292, 320);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(192, 24);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Vez de jogar »";
-            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.moveJ);
+            this.groupBox3.Controls.Add(this.lbX);
+            this.groupBox3.Controls.Add(this.lbEmpate);
+            this.groupBox3.Controls.Add(this.lbO);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Cursor = System.Windows.Forms.Cursors.Default;
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Location = new System.Drawing.Point(340, 7);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox3.Size = new System.Drawing.Size(196, 107);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = " PONTUAÇÃO ";
+            // 
+            // lbX
+            // 
+            this.lbX.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbX.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbX.ForeColor = System.Drawing.Color.Green;
+            this.lbX.Location = new System.Drawing.Point(46, 70);
+            this.lbX.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbX.Name = "lbX";
+            this.lbX.Size = new System.Drawing.Size(38, 27);
+            this.lbX.TabIndex = 6;
+            this.lbX.Text = "0";
+            this.lbX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbEmpate
+            // 
+            this.lbEmpate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbEmpate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbEmpate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lbEmpate.Location = new System.Drawing.Point(90, 31);
+            this.lbEmpate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbEmpate.Name = "lbEmpate";
+            this.lbEmpate.Size = new System.Drawing.Size(38, 27);
+            this.lbEmpate.TabIndex = 5;
+            this.lbEmpate.Text = "0";
+            this.lbEmpate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbO
+            // 
+            this.lbO.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbO.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbO.ForeColor = System.Drawing.Color.Green;
+            this.lbO.Location = new System.Drawing.Point(149, 70);
+            this.lbO.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbO.Name = "lbO";
+            this.lbO.Size = new System.Drawing.Size(38, 27);
+            this.lbO.TabIndex = 5;
+            this.lbO.Text = "0";
+            this.lbO.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(114, 75);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(27, 20);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "O:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(16, 75);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(26, 20);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "X:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(15, 36);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 17);
+            this.label6.TabIndex = 4;
+            this.label6.Text = "Empate:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lbJogador);
+            this.groupBox2.Controls.Add(this.lbComputador);
+            this.groupBox2.Controls.Add(this.txtJogador1);
+            this.groupBox2.Controls.Add(this.txtJogador2);
+            this.groupBox2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(8, 7);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox2.Size = new System.Drawing.Size(322, 107);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = " JOGADORES ";
+            // 
+            // lbJogador
+            // 
+            this.lbJogador.AutoSize = true;
+            this.lbJogador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbJogador.Location = new System.Drawing.Point(11, 33);
+            this.lbJogador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbJogador.Name = "lbJogador";
+            this.lbJogador.Size = new System.Drawing.Size(87, 17);
+            this.lbJogador.TabIndex = 1;
+            this.lbJogador.Text = "Seu Nome:";
+            // 
+            // lbComputador
+            // 
+            this.lbComputador.AutoSize = true;
+            this.lbComputador.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbComputador.Location = new System.Drawing.Point(11, 71);
+            this.lbComputador.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbComputador.Name = "lbComputador";
+            this.lbComputador.Size = new System.Drawing.Size(99, 17);
+            this.lbComputador.TabIndex = 1;
+            this.lbComputador.Text = "Adverssário:";
+            // 
+            // txtJogador1
+            // 
+            this.txtJogador1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJogador1.Location = new System.Drawing.Point(117, 29);
+            this.txtJogador1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtJogador1.MaxLength = 15;
+            this.txtJogador1.Name = "txtJogador1";
+            this.txtJogador1.Size = new System.Drawing.Size(193, 26);
+            this.txtJogador1.TabIndex = 0;
+            this.txtJogador1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtJogador2
+            // 
+            this.txtJogador2.Enabled = false;
+            this.txtJogador2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtJogador2.Location = new System.Drawing.Point(117, 66);
+            this.txtJogador2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtJogador2.MaxLength = 15;
+            this.txtJogador2.Name = "txtJogador2";
+            this.txtJogador2.Size = new System.Drawing.Size(193, 26);
+            this.txtJogador2.TabIndex = 0;
+            this.txtJogador2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.label3.Font = new System.Drawing.Font("Symbol", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Linen;
+            this.label3.Location = new System.Drawing.Point(8, 10);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 33);
+            this.label3.TabIndex = 7;
+            this.label3.Tag = "Fechar jogo";
+            this.label3.Text = "?";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // vezJogarXO
             // 
@@ -528,21 +547,22 @@
             this.Controls.Add(this.painelBorda);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Velha";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Jogo da Velha";
             this.Load += new System.EventHandler(this.Velha_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.painelBorda.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
             this.gbOpcoes.ResumeLayout(false);
             this.gbOpcoes.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.painelBorda.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vezJogarXO)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pc7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pc8)).EndInit();
@@ -593,6 +613,7 @@
         private System.Windows.Forms.Button btIniciar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox vezJogarXO;
+        private System.Windows.Forms.Label label3;
     }
 }
 
